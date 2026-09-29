@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141312" media="(prefers-color-scheme: dark)">
+<title>My Whisky Table — Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF8; --ink:#1A1A18; --ink2:#4F463E; --mute:#6B6055;
+  --line:#E6E1D5; --line2:#C2BAA8; --accent:#8A7D6A; --panel:#F3F0EA;
+  --card:#1A1A18; --card-ink:#FAFAF8; --card-mute:#B8AE9C; --card-line:#4A443B; --hl:#FFE066;
+  --serif:'Cormorant Garamond','Times New Roman',Georgia,serif;
+  --ko:'Noto Serif KR','Apple SD Gothic Neo','Malgun Gothic',serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141312; --ink:#F1EDE4; --ink2:#C4BAAB; --mute:#A79D8D;
+    --line:#2A2723; --line2:#4A443B; --accent:#B39B72; --panel:#1E1C19;
+    --card:#22201C; --card-ink:#F1EDE4; --card-mute:#A79D8D; --card-line:#3A352E; --hl:rgba(255,214,64,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141312; --ink:#F1EDE4; --ink2:#C4BAAB; --mute:#A79D8D;
+  --line:#2A2723; --line2:#4A443B; --accent:#B39B72; --panel:#1E1C19;
+  --card:#22201C; --card-ink:#F1EDE4; --card-mute:#A79D8D; --card-line:#3A352E; --hl:rgba(255,214,64,.4);
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 52px);background:var(--bg);}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ko);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility}
+p{margin:0}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+
+/* cover */
+.cover{text-align:center;padding:48px 20px 30px}
+.brand{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.05;letter-spacing:.02em}
+.orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0 12px}
+.orn i{display:block;width:40px;height:1px;background:var(--accent)}
+.orn b{display:block;width:5px;height:5px;background:var(--accent);transform:rotate(45deg)}
+.menu{font-family:var(--serif);font-style:italic;font-size:27px;color:var(--ink2)}
+.tag{margin-top:10px;font-size:13px;color:var(--mute);letter-spacing:.05em}
+
+/* category tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line2);
+  box-shadow:0 calc(-1 * env(safe-area-inset-top,0px)) 0 var(--bg)}
+#tabs{position:relative;display:flex;gap:2px;overflow-x:auto;max-width:560px;margin:0 auto;padding:0 10px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+#tabs::-webkit-scrollbar{display:none}
+#tabs a{position:relative;flex:none;display:flex;align-items:center;min-height:48px;padding:0 12px;
+  font-size:14.5px;color:var(--mute);text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+#tabs a[aria-current="true"]{color:var(--ink)}
+#tabs a[aria-current="true"]::after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;height:2px;background:var(--ink)}
+#tabs a:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+
+/* sections */
+.sec{padding-top:38px;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 52px)}
+.sh{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-bottom:10px;border-bottom:1px solid var(--line2)}
+.sh h2{margin:0;flex:1;min-width:0;font-family:var(--serif);font-weight:500;font-size:28px;line-height:1.12;letter-spacing:.01em}
+.sk{flex:none;font-size:13.5px;color:var(--mute)}
+.sub{margin:28px 0 0;padding-bottom:7px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600;color:var(--ink2)}
+
+/* rows */
+.list{list-style:none;margin:0;padding:0}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}
+.list .item:last-child{border-bottom:0}
+.en{font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.22;overflow-wrap:anywhere}
+.kr{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:10px;margin-top:2px;font-size:14px;color:var(--ink2)}
+.vol{font-size:12.5px;line-height:1.55;color:var(--mute);border:1px solid var(--line2);border-radius:3px;padding:0 6px}
+.desc{margin-top:5px;font-size:13.5px;line-height:1.6;color:var(--ink2);word-break:keep-all;overflow-wrap:anywhere}
+.px{min-width:118px;font-variant-numeric:lining-nums tabular-nums}
+.pl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;line-height:1.55}
+.lab{font-size:12.5px;color:var(--mute)}
+.val{margin-left:auto;font-family:var(--serif);font-weight:600;font-size:19px}
+.na{font-weight:400;color:var(--mute)}
+
+/* notes */
+.notice{margin:14px 0 0;padding:12px 14px;background:var(--panel);border-left:3px solid var(--accent);font-size:13.5px}
+.notice div{display:flex;justify-content:space-between;gap:14px;padding:3px 0}
+.notice dt{color:var(--ink2)}
+.notice dd{margin:0;font-weight:600;white-space:nowrap}
+.incl{margin:14px 0 0;padding:10px 14px;background:var(--panel);border-left:2px solid var(--accent)}
+.ien{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--ink2)}
+.ikr{margin-top:2px;font-size:13px;color:var(--mute)}
+.extra{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:14px 0 0;padding:14px 16px;background:var(--card);color:var(--card-ink);border:1px solid var(--card-line)}
+.xl{flex:1;font-size:13px;color:var(--card-mute)}
+.xp{font-family:var(--serif);font-size:25px;font-weight:500;white-space:nowrap}
+
+/* system */
+.sysgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.syscard{padding:26px 8px 22px;text-align:center;background:var(--card);color:var(--card-ink);border:1px solid var(--card-line)}
+.stag{margin-bottom:12px;font-size:13px;color:var(--card-mute)}
+.sbig{font-family:var(--serif);font-size:48px;font-weight:400;line-height:1;font-variant-numeric:lining-nums}
+.ssub{margin-top:8px;font-size:12px;letter-spacing:.06em;color:var(--card-mute)}
+.sitems{font-family:var(--serif);font-size:28px;line-height:1.3}
+.sfree{display:inline-block;margin-top:10px;padding:3px 14px;font-size:12px;letter-spacing:.14em;border:1px solid var(--card-line)}
+.sysdesc{margin:18px 0 4px;text-align:center;font-size:14.5px;line-height:1.8;color:var(--ink2);word-break:keep-all}
+.sysdesc-en{margin:0 0 8px;text-align:center;font-family:var(--serif);font-size:17px;line-height:1.5;color:var(--ink2)}
+.n{font-family:var(--ko);font-weight:600;font-size:1.1em;line-height:1;font-variant-numeric:lining-nums;color:var(--ink)}
+.sysrow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px;padding:16px 18px;background:var(--card);color:var(--card-ink);border:1px solid var(--card-line)}
+.rl{font-size:14.5px}
+.rp{font-family:var(--serif);font-size:34px;font-weight:400;white-space:nowrap;font-variant-numeric:lining-nums}
+
+
+/* unlimited whisky cards */
+.wlist{margin-top:6px}
+.wc{padding:18px 0;border-bottom:1px solid var(--line)}
+.wlist .wc:last-child{border-bottom:0}
+.wn{margin:0;display:flex;flex-direction:column;gap:1px}
+.wk{font-family:var(--ko);font-weight:600;font-size:17px;line-height:1.35;word-break:keep-all}
+.we{font-family:var(--serif);font-size:17px;line-height:1.25;color:var(--ink2)}
+.spec{display:grid;grid-template-columns:1.5fr 1.1fr .8fr;gap:8px;margin:12px 0 0;padding:9px 12px;background:var(--panel);border-left:2px solid var(--accent)}
+.spec dt{font-size:11.5px;color:var(--mute)}
+.spec dd{margin:1px 0 0;font-size:13.5px;line-height:1.4;word-break:keep-all}
+.wd{margin-top:12px;font-size:14px;line-height:1.75;color:var(--ink2);word-break:keep-all;overflow-wrap:anywhere}
+
+
+/* promotion box */
+.promo{position:relative;margin-top:18px;padding:6px 20px;background:var(--panel);border:2px solid var(--ink)}
+.promo::after{content:"";position:absolute;inset:4px;border:1px solid var(--line2);pointer-events:none}
+.promo .item{padding:18px 0;border-bottom:1px solid var(--line2)}
+.promo .list .item:last-child{border-bottom:0}
+.promo .en{font-size:21px}
+.promo .val{font-size:24px}
+
+/* guide */
+.guide{list-style:none;margin:6px 0 0;padding:0}
+.guide li{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.75;word-break:keep-all}
+.guide li::before{content:"";flex:none;width:5px;height:5px;margin-top:.78em;background:var(--accent);transform:rotate(45deg)}
+.guide .tx{min-width:0}
+.guide .k{margin:0}
+.guide .e{margin:3px 0 0;font-family:var(--serif);font-size:17px;line-height:1.45;color:var(--ink2);word-break:normal}
+.guide strong{font-weight:600}
+.guide mark{color:inherit;background:linear-gradient(transparent 50%,var(--hl) 50%);padding:0 2px;border-radius:2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+.foot{padding:44px 0 30vh;text-align:center}
+.foot p{font-family:var(--serif);font-size:15px;color:var(--mute);letter-spacing:.04em}
+
+@media (max-width:359px){
+  .brand{font-size:40px}
+  .sysgrid{grid-template-columns:1fr}
+  .en{font-size:19px}
+}
+</style>
+</head>
+<body>
+<header class="cover">
+  <h1 class="brand" style="margin:0;font-weight:400">My Whisky Table</h1>
+  <div class="orn" aria-hidden="true"><i></i><b></b><i></i></div>
+  <p class="menu">Menu</p>
+  <p class="tag">Seoul &nbsp;·&nbsp; Fine Spirits &amp; Cocktails</p>
+</header>
+<nav class="tabs" aria-label="메뉴 카테고리"><div id="tabs"><a href="#system" data-t="system">시스템</a><a href="#guide" data-t="guide">이용안내</a><a href="#uwhisky" data-t="uwhisky">무제한 위스키</a><a href="#cocktail" data-t="cocktail">무제한 칵테일</a><a href="#premium" data-t="premium">무제한 프리미엄</a><a href="#nonalc" data-t="nonalc">무제한 논알콜</a><a href="#promo" data-t="promo">프로모션</a><a href="#scotch" data-t="scotch">스카치</a><a href="#whisky" data-t="whisky">위스키</a><a href="#cognac" data-t="cognac">코냑</a><a href="#champagne" data-t="champagne">샴페인</a><a href="#beer" data-t="beer">맥주·음료</a><a href="#dish" data-t="dish">안주</a></div></nav>
+<main class="wrap">
+
+<section id="system" class="sec" aria-labelledby="system-h">
+  <header class="sh"><h2 id="system-h">My Whisky Table System</h2><span class="sk">무제한 시스템</span></header>
+  
+<div class="sysgrid">
+  <div class="syscard"><p class="stag">1 Hour · 1시간</p><p class="sbig">30,000</p><p class="ssub">Korean Won</p></div>
+  <div class="syscard"><p class="stag">Unlimited · 무제한</p><p class="sitems">Beer<br>Cocktail<br>Whisky</p><p class="sfree">Free</p></div>
+</div>
+<p class="sysdesc">1시간 동안 맥주(지정된 맥주), 칵테일, 위스키를 무제한으로 즐기실 수 있습니다.</p>
+<p class="sysdesc-en" lang="en">Enjoy unlimited designated beer, cocktails, and whisky for <span class="n">1</span> hour.</p>
+<div class="sysrow"><p class="rl">연장 30분 · Extension 30 min</p><p class="rp">15,000</p></div>
+<div class="sysrow"><p class="rl">Bartender Drink · 바텐더 음료</p><p class="rp">15,000</p></div>
+</section>
+<section id="guide" class="sec" aria-labelledby="guide-h">
+  <header class="sh"><h2 id="guide-h">System</h2><span class="sk">이용 안내</span></header>
+  <ul class="guide"><li><div class="tx"><p class="k">1시간 동안 맥주, 칵테일, 위스키를 무제한으로 즐기실 수 있습니다.</p><p class="e" lang="en">Enjoy unlimited beer, cocktails, and whisky for 1 hour.</p></div></li><li><div class="tx"><p class="k"><mark>시간이 지나면 자동으로 연장됨을 알려 드립니다.</mark></p><p class="e" lang="en"><mark>When your time is up, your session is automatically extended, and we will let you know.</mark></p></div></li><li><div class="tx"><p class="k">자동으로 연장 시 <strong>30분당 15,000원</strong> 입니다.</p><p class="e" lang="en">If automatically extended, the charge is <strong>15,000 KRW per 30 minutes</strong>.</p></div></li><li><div class="tx"><p class="k">바텐더 음료 비용은 한잔 당 <strong>15,000원</strong> 입니다.</p><p class="e" lang="en">Bartender drinks are <strong>15,000 KRW</strong> per glass.</p></div></li><li><div class="tx"><p class="k">계산은 일어나실 때 도와드리겠습니다.</p><p class="e" lang="en">We will take care of your bill when you are ready to leave.</p></div></li><li><div class="tx"><p class="k">모든 킵 술 보관기간은 <strong>1개월</strong> 입니다.</p><p class="e" lang="en">All kept bottles are stored for <strong>1 month</strong>.</p></div></li></ul>
+</section>
+<section id="uwhisky" class="sec" aria-labelledby="uwhisky-h">
+  <header class="sh"><h2 id="uwhisky-h">Unlimited Whisky</h2><span class="sk">무제한 위스키</span></header>
+  <div class="wlist"><article class="wc"><h3 class="wn"><span class="wk">미스터 보스턴 버번</span><span class="we">Mr. Boston Bourbon</span></h3><dl class="spec"><div><dt>종류</dt><dd>버번 위스키</dd></div><div><dt>원산지</dt><dd>미국</dd></div><div><dt>도수</dt><dd>40%</dd></div></dl><p class="wd">&#x27;미스터 보스턴 버번&#x27;은 부드러우면서 온더락으로 마셔도 부담없는 맛으로 버번 위스키 특유의 스파이시한 맛과 은은한 바닐라 향, 오렌지 같은 시트러스함이 조화롭게 어우러 진 맛입니다.</p></article><article class="wc"><h3 class="wn"><span class="wk">켄터키 젠틀맨 버번</span><span class="we">Kentucky Gentleman Bourbon</span></h3><dl class="spec"><div><dt>종류</dt><dd>버번 위스키</dd></div><div><dt>원산지</dt><dd>미국</dd></div><div><dt>도수</dt><dd>40%</dd></div></dl><p class="wd">&#x27;켄터키 젠틀맨 버번&#x27;은 미국 켄터키주의 대표적인 버번 위스키 입니다. 켄터키 젠틀맨 위스키는 숯에 그을린 새로운 오크통에 4년의 숙성기간을 거쳐 달콤한 아로마 향을 지니고 있으며, 곡물의 풍미와 오크통이 조화를 잘 이루는 동시에 부드러운 텍스쳐와 오묘한 맛을 선사 합니다.</p></article><article class="wc"><h3 class="wn"><span class="wk">엠페라도르 디럭스 스페셜 리저브</span><span class="we">Emperador Deluxe Special Reserve</span></h3><dl class="spec"><div><dt>종류</dt><dd>브랜디</dd></div><div><dt>원산지</dt><dd>스페인</dd></div><div><dt>도수</dt><dd>40%</dd></div></dl><p class="wd">세계적으로 뛰어난 품질을 자랑하는 엠페라도르의 브랜디는 황금빛을 감도는 호박색을 가지고 있고, 포도, 토피, 아몬드, 꿀 등의 달콤하고 새콤한 풍미를 느낄 수 있습니다.</p></article><article class="wc"><h3 class="wn"><span class="wk">코쿤 위스키</span><span class="we">Kokun whisky</span></h3><dl class="spec"><div><dt>종류</dt><dd>재패니즈 위스키</dd></div><div><dt>원산지</dt><dd>일본</dd></div><div><dt>도수</dt><dd>37%</dd></div></dl><p class="wd">&#x27;코쿤 위스키&#x27;는 엄선된 3가지 원액을 블렌딩하여 묵직하고 깊은 여운과 부드러운 목넘김, 향기로운 풍미를 탄생시킨 블렌디드 위스키 입니다.</p></article><article class="wc"><h3 class="wn"><span class="wk">올드캐슬 위스키</span><span class="we">Old Castle whisky</span></h3><dl class="spec"><div><dt>종류</dt><dd>블렌디드 위스키</dd></div><div><dt>원산지</dt><dd>스코틀랜드</dd></div><div><dt>도수</dt><dd>40%</dd></div></dl><p class="wd">&#x27;올드 캐슬&#x27;은 싱글몰트 위스키와 싱글 그레인 위스키를 블렌딩한 후 최소 3년 이상 엑스 버번에 숙성해 달콤함과 스파이시함이 어우러진 복합적인 맛을 느낄 수 있는 위스키 입니다</p></article><article class="wc"><h3 class="wn"><span class="wk">글렌라씨 위스키</span><span class="we">Glenlassie whisky</span></h3><dl class="spec"><div><dt>종류</dt><dd>블렌디드 위스키</dd></div><div><dt>원산지</dt><dd>스코틀랜드</dd></div><div><dt>도수</dt><dd>40%</dd></div></dl><p class="wd">‘글렌라씨’ 는 1897년 설립된 스코틀랜드 하이랜드의 증류소 ‘토마틴 (Tomatin) 증류소’ 에서 생산하고 있습니다. 달콤하면서 스파이시한 맛을 가지고 있습니다.</p></article><article class="wc"><h3 class="wn"><span class="wk">칼라힐 위스키</span><span class="we">Carlyle whisky</span></h3><dl class="spec"><div><dt>종류</dt><dd>블렌디드 위스키</dd></div><div><dt>원산지</dt><dd>스코틀랜드</dd></div><div><dt>도수</dt><dd>40%</dd></div></dl><p class="wd">‘칼라힐’은 총 20가지의 스페이사이드, 하일랜드 스코치 원액을 블랜딩한 블렌디드 위스키 입니다. ‘칼라힐’은 몰트 특유의 달콤한 아로마를 갖고 있으며, 달콤한 풍미가 은은한 스파이스와 조화를 이뤄 균형잡힌 맛이 특징 입니다.</p></article><article class="wc"><h3 class="wn"><span class="wk">존 바 파이니스트</span><span class="we">John Barr Finest</span></h3><dl class="spec"><div><dt>종류</dt><dd>블렌디드 위스키</dd></div><div><dt>원산지</dt><dd>스코틀랜드</dd></div><div><dt>도수</dt><dd>40%</dd></div></dl><p class="wd">존바는 달모어, 주라 등의 최고급 몰트 위스키를 만드는 마스터 블렌더 리차드 패터슨의 작품 가운데 하나 입니다. ‘존바 파이니스트’는 30개 이상의 하이랜드 몰트 원액과 스페이사이드 몰트, 그레인 위스키를 블렌딩하여 만들어졌습니다.</p></article><article class="wc"><h3 class="wn"><span class="wk">탈리스만</span><span class="we">Talisman</span></h3><dl class="spec"><div><dt>종류</dt><dd>블렌디드 위스키</dd></div><div><dt>원산지</dt><dd>스코틀랜드</dd></div><div><dt>도수</dt><dd>40%</dd></div></dl><p class="wd">‘더 탈리스만’은 스코틀랜드의 블렌디드 위스키로, 말린 헤더, 토탄 및 배럴의 힌트와 몰티 아로마, 부드러운 스모키함과 과일 향이 조화를 이루는 복합적인 풍미의 위스키 입니다.</p></article></div>
+</section>
+<section id="cocktail" class="sec" aria-labelledby="cocktail-h">
+  <header class="sh"><h2 id="cocktail-h">Unlimited Cocktail</h2><span class="sk">무제한 칵테일</span></header>
+  <div class="incl"><p class="ien">Included in System · 무제한 포함</p><p class="ikr">무제한 시스템에 포함된 칵테일입니다</p></div><h3 class="sub">Highball 하이볼</h3><ul class="list"><li class="item"><div class="who"><p class="en">Highball</p><p class="kr">하이볼</p><p class="desc">위스키 또는 보드카, 진류 소다수에 섞어 만든 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Ginger Highball</p><p class="kr">진저 하이볼</p><p class="desc">진저의 알싸한 맛과 탄산의 깔끔한 조합</p></div></li><li class="item"><div class="who"><p class="en">Earl Grey Highball</p><p class="kr">얼그레이 하이볼</p><p class="desc">얼그레이 티의 향긋함과 시트러스, 탄산의 깔끔한 조합</p></div></li><li class="item"><div class="who"><p class="en">Green Grape Highball</p><p class="kr">청포도 하이볼</p><p class="desc">청포도의 상큼한 맛이 나는 깔끔한 하이볼</p></div></li><li class="item"><div class="who"><p class="en">Grapefruit Highball</p><p class="kr">자몽 하이볼</p><p class="desc">자몽의 상큼한 쌉싸름함과 탄산의 깔끔한 조합</p></div></li><li class="item"><div class="who"><p class="en">Blue Lemon Highball</p><p class="kr">블루레몬 하이볼</p><p class="desc">레몬의 상큼함과 청량한 탄산이 어우러진 하이볼</p></div></li><li class="item"><div class="who"><p class="en">Grenadine Highball</p><p class="kr">석류 하이볼</p><p class="desc">석류의 맛과 청량한 탄산이 어우러진 하이볼</p></div></li></ul><h3 class="sub">Whisky Based</h3><ul class="list"><li class="item"><div class="who"><p class="en">Whisky Coke</p><p class="kr">위스키콕</p><p class="desc">미국에서는 &#x27;잭 콕&#x27;으로 유명한 칵테일</p></div></li><li class="item"><div class="who"><p class="en">New York</p><p class="kr">뉴욕</p><p class="desc">위스키와 라임의 만남, 뉴욕의 이미지를 담은 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Whisky Sour</p><p class="kr">위스키 사워</p><p class="desc">위스키에 레몬즙을 넣어 상큼하게 만든 칵테일</p></div></li><li class="item"><div class="who"><p class="en">God Father</p><p class="kr">갓파더</p><p class="desc">위스키와 아몬드 향의 아마레토가 부드럽게 어우러진 깊고 달콤한 칵테일</p></div></li><li class="item"><div class="who"><p class="en">God Mother</p><p class="kr">갓마더</p><p class="desc">보드카와 아몬드 향의 아마레토가 부드럽게 어우러진 달콤하고 우아한 칵테일</p></div></li></ul><h3 class="sub">Tequila &amp; Gin</h3><ul class="list"><li class="item"><div class="who"><p class="en">Margarita</p><p class="kr">마가리타</p><p class="desc">라임의 상큼함과 테킬라 본연의 향이 어우러진 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Margarita Azul</p><p class="kr">마가리타 아줄</p><p class="desc">블루 큐라소가 들어가는 라임의 상큼함이 가득한 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Martini</p><p class="kr">마티니</p><p class="desc">냄새는 향긋하지만 강한 쓴맛의 클래식 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Grapefruit Martini</p><p class="kr">자몽 마티니</p><p class="desc">자몽의 과일향이 가득한 시큰한 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Gin &amp; Tonic</p><p class="kr">진토닉</p><p class="desc">쓴맛과 단맛이 공존하는 클래식 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Vodka &amp; Tonic</p><p class="kr">보드카 토닉</p><p class="desc">진토닉과 비슷하지만 보드카 베이스</p></div></li><li class="item"><div class="who"><p class="en">Vodka Cranberry</p><p class="kr">보드카 크랜베리</p><p class="desc">보드카 베이스에 크랜베리가 어우러진 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Electronic Lemonade</p><p class="kr">일렉트로닉 레모네이드</p><p class="desc">블루 큐라소가 들어간 오렌지와 레몬의 칵테일</p></div></li></ul><h3 class="sub">Fruity &amp; Tropical</h3><ul class="list"><li class="item"><div class="who"><p class="en">Angel&#x27;s Tear</p><p class="kr">엔젤스 티어</p><p class="desc">복숭아와 레몬맛이 어우러진, 여성들에게 인기 많은 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Banana Daiquiri</p><p class="kr">바나나 다이키리</p><p class="desc">바나나 맛과 바닐라의 맛이 섞여 만든 다이키리</p></div></li><li class="item"><div class="who"><p class="en">Midori Sour</p><p class="kr">미도리 사워</p><p class="desc">멜론 맛과 레몬 맛이 섞여있는 대중적인 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Peach Crush</p><p class="kr">피치 크러쉬</p><p class="desc">복숭아 혼성과 레몬, 크랜베리 주스의 상쾌한 조합</p></div></li><li class="item"><div class="who"><p class="en">Watermelon</p><p class="kr">워터멜론</p><p class="desc">수박 맛 칵테일로 색감이 이쁘고 상큼한</p></div></li><li class="item"><div class="who"><p class="en">Mojito</p><p class="kr">모히토</p><p class="desc">라임과 민트잎의 조화가 어우러진 대중적인 칵테일</p></div></li></ul>
+</section>
+<section id="premium" class="sec" aria-labelledby="premium-h">
+  <header class="sh"><h2 id="premium-h">Unlimited Premium Cocktail</h2><span class="sk">무제한 프리미엄 칵테일</span></header>
+  <div class="extra"><p class="xl">Additional charge per glass · 잔당 추가금액</p><p class="xp">+ 4,000원</p></div><h3 class="sub">Cream &amp; Coffee</h3><ul class="list"><li class="item"><div class="who"><p class="en">Piña Colada</p><p class="kr">피나콜라다</p><p class="desc">진한 코코넛 향과 파인애플 주스가 어우러진 트로피컬 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Kahlúa &amp; Milk</p><p class="kr">칼루아 밀크</p><p class="desc">우유와 커피맛 리큐르의 조합</p></div></li><li class="item"><div class="who"><p class="en">Baileys &amp; Milk</p><p class="kr">베일리스 밀크</p><p class="desc">벨기에산 초콜릿과 신선한 아이리시 크림, 위스키가 부드럽게 섞인 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Latte Martini</p><p class="kr">라테 마티니</p><p class="desc">보드카와 에스프레소, 우유의 맛이 섞여 부드러운 마티니</p></div></li><li class="item"><div class="who"><p class="en">Espresso Martini</p><p class="kr">에스프레소 마티니</p><p class="desc">커피를 베이스로 만든 칵테일, 커피 애호가에게 인기</p></div></li><li class="item"><div class="who"><p class="en">Black Russian</p><p class="kr">블랙 러시안</p><p class="desc">보드카 베이스에 칼루아의 단맛이 특징</p></div></li><li class="item"><div class="who"><p class="en">White Russian</p><p class="kr">화이트 러시안</p><p class="desc">블랙러시안에 우유 또는 생크림을 넣어 만든 칵테일</p></div></li></ul><h3 class="sub">Long &amp; Exotic</h3><ul class="list"><li class="item"><div class="who"><p class="en">Long Island Iced Tea</p><p class="kr">롱아일랜드 아이스티</p><p class="desc">홍차류 없이 홍차의 맛을 표현한 &#x27;칵테일의 폭탄주&#x27;</p></div></li><li class="item"><div class="who"><p class="en">June Bug</p><p class="kr">준벅</p><p class="desc">여름날 초록의 색감과 멜론, 코코넛의 달콤한 향기</p></div></li><li class="item"><div class="who"><p class="en">Blue Hawaii</p><p class="kr">블루 하와이</p><p class="desc">1957년 하와이 힐튼 호텔 바텐더가 개발한 여름 트로피컬 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Shark Attack</p><p class="kr">샤크 어택</p><p class="desc">파란색 바다를 표현하여 상어젤리와 함께 재미난 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Old Fashioned</p><p class="kr">올드 패션드</p><p class="desc">버번 베이스, 바닐라 향과 비터의 쓴맛이 어우러진 칵테일</p></div></li></ul>
+</section>
+<section id="nonalc" class="sec" aria-labelledby="nonalc-h">
+  <header class="sh"><h2 id="nonalc-h">Unlimited Non-Alcoholic Cocktail</h2><span class="sk">무제한 논알콜 칵테일</span></header>
+  <ul class="list"><li class="item"><div class="who"><p class="en">Earl Grey Highball</p><p class="kr">얼그레이 하이볼</p><p class="desc">얼그레이 티의 향긋함과 시트러스, 탄산의 깔끔한 조합</p></div></li><li class="item"><div class="who"><p class="en">Green Grape Highball</p><p class="kr">청포도 하이볼</p><p class="desc">청포도의 상큼한 맛이 나는 깔끔한 하이볼</p></div></li><li class="item"><div class="who"><p class="en">Grapefruit Highball</p><p class="kr">자몽 하이볼</p><p class="desc">자몽의 상큼한 쌉싸름함과 탄산의 깔끔한 조합</p></div></li><li class="item"><div class="who"><p class="en">Blue Lemon Highball</p><p class="kr">블루레몬 하이볼</p><p class="desc">레몬의 상큼함과 청량한 탄산이 어우러진 하이볼</p></div></li><li class="item"><div class="who"><p class="en">Grenadine Highball</p><p class="kr">석류 하이볼</p><p class="desc">석류의 맛과 청량한 탄산이 어우러진 하이볼</p></div></li><li class="item"><div class="who"><p class="en">Virgin Mojito</p><p class="kr">논알콜 모히토</p><p class="desc">라임과 민트잎의 조화가 어우러진 대중적인 칵테일</p></div></li><li class="item"><div class="who"><p class="en">Shirley Temple</p><p class="kr">셜리 템플</p><p class="desc">석류와 진저가 어우러진 음료</p></div></li><li class="item"><div class="who"><p class="en">Watermelon</p><p class="kr">워터멜론</p><p class="desc">수박맛이 나는 칵테일로 청량감이 넘치는 음료</p></div></li><li class="item"><div class="who"><p class="en">Virgin Piña Colada</p><p class="kr">피나 콜라다</p><p class="desc">알코올이 들어가지 않은 파인애플과 코코넛맛이 어우러진 음료</p></div></li></ul>
+</section>
+<section id="promo" class="sec" aria-labelledby="promo-h">
+  <header class="sh"><h2 id="promo-h">Whisky Promotion</h2><span class="sk">프로모션</span></header>
+  <div class="promo"><ul class="list"><li class="item"><div class="who"><p class="en">Ballantine&#x27;s 17Y</p><p class="kr">발렌타인 17년 + 과일</p></div><div class="px"><p class="pl"><span class="val">360,000</span></p></div></li><li class="item"><div class="who"><p class="en">The Glenlivet 15Y</p><p class="kr">글렌리벳 15년 + 과일</p></div><div class="px"><p class="pl"><span class="val">490,000</span></p></div></li><li class="item"><div class="who"><p class="en">Royal Salute 21Y</p><p class="kr">로얄살루트 21년 + 과일</p></div><div class="px"><p class="pl"><span class="val">550,000</span></p></div></li></ul></div>
+</section>
+<section id="scotch" class="sec" aria-labelledby="scotch-h">
+  <header class="sh"><h2 id="scotch-h">Scotch Whisky</h2><span class="sk">스카치 위스키</span></header>
+  <ul class="list"><li class="item"><div class="who"><p class="en">Ballantine&#x27;s 17y</p><p class="kr">발렌타인 17년<span class="vol">500ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">350,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">25,000</span></p></div></li><li class="item"><div class="who"><p class="en">Ballantine&#x27;s 21y</p><p class="kr">발렌타인 21년<span class="vol">500ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">490,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">35,000</span></p></div></li><li class="item"><div class="who"><p class="en">Ballantine&#x27;s 30y</p><p class="kr">발렌타인 30년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">2,000,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">95,000</span></p></div></li><li class="item"><div class="who"><p class="en">Royal Salute 21y</p><p class="kr">로얄살루트 21년</p></div><div class="px"><p class="pl"><span class="lab">500ml</span><span class="val">540,000</span></p><p class="pl"><span class="lab">700ml</span><span class="val">750,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">38,000</span></p></div></li><li class="item"><div class="who"><p class="en">Johnnie Walker Blue</p><p class="kr">조니워커 블루</p></div><div class="px"><p class="pl"><span class="lab">500ml</span><span class="val">580,000</span></p><p class="pl"><span class="lab">700ml</span><span class="val">790,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">39,000</span></p></div></li><li class="item"><div class="who"><p class="en">Glenmorangie Original 12y</p><p class="kr">글렌모렌지 오리지널<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">450,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">26,000</span></p></div></li><li class="item"><div class="who"><p class="en">Glenmorangie Lasanta 15y</p><p class="kr">글렌모렌지 라산타<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">480,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">29,000</span></p></div></li><li class="item"><div class="who"><p class="en">Glenmorangie Signet</p><p class="kr">글렌모렌지 시그넷<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">950,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">49,000</span></p></div></li></ul><dl class="notice"><div><dt>위스키 보관비용</dt><dd>50,000원</dd></div><div><dt>보관기간</dt><dd>1개월</dd></div><div><dt>잔 파손 및 코스타 파손비용</dt><dd>10,000원</dd></div></dl>
+</section>
+<section id="whisky" class="sec" aria-labelledby="whisky-h">
+  <header class="sh"><h2 id="whisky-h">My Whisky Table Whisky</h2><span class="sk">위스키</span></header>
+  <ul class="list"><li class="item"><div class="who"><p class="en">Golden Blue</p><p class="kr">골든블루<span class="vol">450ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">290,000</span></p><p class="pl"><span class="lab">잔</span><span class="val"><span class="na">—</span></span></p></div></li><li class="item"><div class="who"><p class="en">Ballantine&#x27;s Master&#x27;s</p><p class="kr">발렌타인 마스터즈<span class="vol">500ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">290,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">23,000</span></p></div></li><li class="item"><div class="who"><p class="en">Johnnie Walker Black</p><p class="kr">조니워커 블랙<span class="vol">500ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">290,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">23,000</span></p></div></li><li class="item"><div class="who"><p class="en">Mc Connell&#x27;s</p><p class="kr">맥코넬스 (아이리쉬)<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">370,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">25,000</span></p></div></li><li class="item"><div class="who"><p class="en">Ballantine&#x27;s Glenburgie 12y</p><p class="kr">발렌타인 글렌버기 12년<span class="vol">500ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">390,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">25,000</span></p></div></li><li class="item"><div class="who"><p class="en">Ballantine&#x27;s Glenburgie 15y</p><p class="kr">발렌타인 글렌버기 15년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">480,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">35,000</span></p></div></li><li class="item"><div class="who"><p class="en">The Glenlivet 12y</p><p class="kr">더 글렌리벳 12년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">390,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">25,000</span></p></div></li><li class="item"><div class="who"><p class="en">The Glenlivet 15y</p><p class="kr">더 글렌리벳 15년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">480,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">35,000</span></p></div></li><li class="item"><div class="who"><p class="en">Glenfiddich 12y</p><p class="kr">글렌피딕 12년</p></div><div class="px"><p class="pl"><span class="lab">500ml</span><span class="val">380,000</span></p><p class="pl"><span class="lab">700ml</span><span class="val">420,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">26,000</span></p></div></li><li class="item"><div class="who"><p class="en">Glenfiddich 15y</p><p class="kr">글렌피딕 15년</p></div><div class="px"><p class="pl"><span class="lab">500ml</span><span class="val">420,000</span></p><p class="pl"><span class="lab">700ml</span><span class="val">490,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">36,000</span></p></div></li></ul><dl class="notice"><div><dt>위스키 보관비용</dt><dd>50,000원</dd></div><div><dt>보관기간</dt><dd>1개월</dd></div><div><dt>잔 파손 및 코스타 파손비용</dt><dd>10,000원</dd></div></dl><ul class="list"><li class="item"><div class="who"><p class="en">Macallan 12y</p><p class="kr">맥켈란 12년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">480,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">37,000</span></p></div></li><li class="item"><div class="who"><p class="en">Macallan 15y</p><p class="kr">맥켈란 15년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">950,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">65,000</span></p></div></li><li class="item"><div class="who"><p class="en">Macallan 18y</p><p class="kr">맥켈란 18년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">2,000,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">95,000</span></p></div></li><li class="item"><div class="who"><p class="en">Hibiki Harmony</p><p class="kr">히비키 하모니<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">950,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">65,000</span></p></div></li><li class="item"><div class="who"><p class="en">Balvenie 12y</p><p class="kr">발베니 12년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">480,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">37,000</span></p></div></li><li class="item"><div class="who"><p class="en">Balvenie 14y</p><p class="kr">발베니 14년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">600,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">42,000</span></p></div></li><li class="item"><div class="who"><p class="en">Dalmore 12y</p><p class="kr">달모어 12년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">490,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">37,000</span></p></div></li><li class="item"><div class="who"><p class="en">Ardbeg 10y</p><p class="kr">아드벡 10년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">450,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">35,000</span></p></div></li><li class="item"><div class="who"><p class="en">Talisker 10y</p><p class="kr">탈리스커 10년<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">420,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">30,000</span></p></div></li><li class="item"><div class="who"><p class="en">Kavalan Distillery Select</p><p class="kr">카발란 디스틸러리 셀렉트<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">480,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">37,000</span></p></div></li><li class="item"><div class="who"><p class="en">Clase Azul Reposado</p><p class="kr">클라세 아줄 레포사도 데킬라<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">950,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">65,000</span></p></div></li><li class="item"><div class="who"><p class="en">1800 Anejo</p><p class="kr">1800 아네호 데킬라<span class="vol">700ml</span></p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">390,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">29,000</span></p></div></li></ul><dl class="notice"><div><dt>위스키 보관비용</dt><dd>50,000원</dd></div><div><dt>보관기간</dt><dd>1개월</dd></div><div><dt>잔 파손 및 코스타 파손비용</dt><dd>10,000원</dd></div></dl>
+</section>
+<section id="cognac" class="sec" aria-labelledby="cognac-h">
+  <header class="sh"><h2 id="cognac-h">Cognac</h2><span class="sk">코냑</span></header>
+  <ul class="list"><li class="item"><div class="who"><p class="en">Hennessy V.S.O.P</p><p class="kr">헤네시 V.S.O.P</p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">350,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">26,000</span></p></div></li><li class="item"><div class="who"><p class="en">Hennessy X.O</p><p class="kr">헤네시 X.O</p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">950,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">65,000</span></p></div></li><li class="item"><div class="who"><p class="en">Remy Martin V.S.O.P</p><p class="kr">레미마틴 V.S.O.P</p></div><div class="px"><p class="pl"><span class="lab">병</span><span class="val">390,000</span></p><p class="pl"><span class="lab">잔</span><span class="val">28,000</span></p></div></li></ul>
+</section>
+<section id="champagne" class="sec" aria-labelledby="champagne-h">
+  <header class="sh"><h2 id="champagne-h">Champagne</h2><span class="sk">샴페인</span></header>
+  <ul class="list"><li class="item"><div class="who"><p class="en">G.H. MUMM Grand Cordon</p><p class="kr">멈 그랑 꼬르동</p></div><div class="px"><p class="pl"><span class="val">340,000</span></p></div></li><li class="item"><div class="who"><p class="en">G.H. MUMM Grand Cordon Rosé</p><p class="kr">멈 그랑 꼬르동 로제</p></div><div class="px"><p class="pl"><span class="val">370,000</span></p></div></li><li class="item"><div class="who"><p class="en">Moët &amp; Chandon Imperial</p><p class="kr">모엣 샹동 임페리얼</p></div><div class="px"><p class="pl"><span class="val">350,000</span></p></div></li><li class="item"><div class="who"><p class="en">Moët &amp; Chandon Rosé Imperial</p><p class="kr">모엣 샹동 로제 임페리얼</p></div><div class="px"><p class="pl"><span class="val">380,000</span></p></div></li><li class="item"><div class="who"><p class="en">Dom Pérignon Blanc</p><p class="kr">돔 페리뇽 블랑</p></div><div class="px"><p class="pl"><span class="val">950,000</span></p></div></li><li class="item"><div class="who"><p class="en">Armand</p><p class="kr">아르망디</p></div><div class="px"><p class="pl"><span class="val">2,000,000</span></p></div></li></ul>
+</section>
+<section id="beer" class="sec" aria-labelledby="beer-h">
+  <header class="sh"><h2 id="beer-h">Beer &amp; Drink</h2><span class="sk">맥주 &amp; 음료</span></header>
+  <ul class="list"><li class="item"><div class="who"><p class="en">Cafri</p><p class="kr">카프리</p></div><div class="px"><p class="pl"><span class="val">18,000</span></p></div></li><li class="item"><div class="who"><p class="en">Hoegaarden</p><p class="kr">호가든</p></div><div class="px"><p class="pl"><span class="val">20,000</span></p></div></li><li class="item"><div class="who"><p class="en">Heineken</p><p class="kr">하이네캔</p></div><div class="px"><p class="pl"><span class="val">20,000</span></p></div></li><li class="item"><div class="who"><p class="en">Guinness Draught</p><p class="kr">기네스 드래프트</p></div><div class="px"><p class="pl"><span class="val">25,000</span></p></div></li><li class="item"><div class="who"><p class="en">Coke / Sprite / Perrier / ETC</p><p class="kr">콜라 / 스프라이트 / 페리에 / 그외 음료</p></div><div class="px"><p class="pl"><span class="val">5,000</span></p></div></li></ul>
+</section>
+<section id="dish" class="sec" aria-labelledby="dish-h">
+  <header class="sh"><h2 id="dish-h">Dish</h2><span class="sk">안주 &amp; 푸드</span></header>
+  <ul class="list"><li class="item"><div class="who"><p class="en">Fruit Punch</p><p class="kr">과일 화채</p></div><div class="px"><p class="pl"><span class="val">35,000</span></p></div></li><li class="item"><div class="who"><p class="en">Seasonal Fruits Plate</p><p class="kr">계절과일</p></div><div class="px"><p class="pl"><span class="val">35,000</span></p></div></li><li class="item"><div class="who"><p class="en">Cheese Plate</p><p class="kr">치즈 플레이트</p></div><div class="px"><p class="pl"><span class="val">35,000</span></p></div></li><li class="item"><div class="who"><p class="en">Fruits &amp; Cheese</p><p class="kr">과일 &amp; 치즈</p></div><div class="px"><p class="pl"><span class="val">38,000</span></p></div></li><li class="item"><div class="who"><p class="en">Beef Jerky &amp; Snacks</p><p class="kr">육포 &amp; 스낵</p></div><div class="px"><p class="pl"><span class="val">39,000</span></p></div></li><li class="item"><div class="who"><p class="en">Ice Cream</p><p class="kr">아이스크림</p></div><div class="px"><p class="pl"><span class="val">5,000</span></p></div></li><li class="item"><div class="who"><p class="en">Olive</p><p class="kr">올리브</p></div><div class="px"><p class="pl"><span class="val">5,000</span></p></div></li><li class="item"><div class="who"><p class="en">Nacho</p><p class="kr">나초</p></div><div class="px"><p class="pl"><span class="val">15,000</span></p></div></li><li class="item"><div class="who"><p class="en">Popcorn</p><p class="kr">양념 팝콘</p></div><div class="px"><p class="pl"><span class="val">10,000</span></p></div></li><li class="item"><div class="who"><p class="en">Setting Cost of Outside Food</p><p class="kr">외부음식 세팅비</p></div><div class="px"><p class="pl"><span class="val">10,000</span></p></div></li></ul>
+</section>
+<footer class="foot"><div class="orn" aria-hidden="true"><i></i><b></b><i></i></div><p>My Whisky Table</p></footer>
+</main>
+<script>
+(function(){
+  var tabs=document.getElementById('tabs');
+  var nav=document.querySelector('.tabs');
+  var links=[].slice.call(tabs.querySelectorAll('a'));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('data-t'));});
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var behavior=reduce?'auto':'smooth';
+  function navBottom(){return nav.getBoundingClientRect().bottom;}
+  function setActive(i){
+    links.forEach(function(a,j){ if(j===i){a.setAttribute('aria-current','true');}else{a.removeAttribute('aria-current');} });
+    var a=links[i]; if(!a) return;
+    var left=a.offsetLeft-(tabs.clientWidth-a.offsetWidth)/2;
+    try{tabs.scrollTo({left:left,behavior:behavior});}catch(e){tabs.scrollLeft=left;}
+  }
+  var cur=-2,ticking=false;
+  function update(){
+    ticking=false;
+    var y=navBottom()+24, idx=0;
+    for(var i=0;i<secs.length;i++){ if(secs[i].getBoundingClientRect().top<=y){idx=i;}else{break;} }
+    if(idx!==cur){cur=idx;setActive(idx);}
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(update);} },{passive:true});
+  window.addEventListener('resize',update);
+  links.forEach(function(a,i){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var target=secs[i].getBoundingClientRect().top+window.pageYOffset-(navBottom()-nav.getBoundingClientRect().top)-(parseFloat(getComputedStyle(nav).top)||0)-6;
+      window.scrollTo({top:target,behavior:behavior});
+    });
+  });
+  update();
+})();
+</script>
+</body>
+</html>
